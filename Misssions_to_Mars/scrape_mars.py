@@ -10,9 +10,11 @@
 from splinter import Browser
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
+from flask import Flask, render_template
+from flask_pymongo import PyMongo
+import pymongo
 import pandas as pd
 import requests
-import pymongo
 import os
 
 
@@ -155,13 +157,35 @@ hemisphere_image_urls = [
 ]        
 
 
-# In[ ]:
+app = Flask(__name__)
+
+# List of dictionaries
+scraped_data = [
+    {"Latest Mars News": "news_title", "news_p"},
+    {"Mars Facts": "table.html"},
+     {"Mar hemispheres": "hemisphere_image_urls"},
+        
+]
+
+# create route that renders index.html template
+@app.route("/")
+def scrape():
+
+    return render_template("index.html", scraped_data=scraped_data)
 
 
 
 
 
-# In[ ]:
+
+    if __name__ == "__main__":
+    app.run(debug=True)
+
+
+
+
+
+
 
 
 
