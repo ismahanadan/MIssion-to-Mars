@@ -160,12 +160,9 @@ hemisphere_image_urls = [
 app = Flask(__name__)
 
 # List of dictionaries
-scraped_data = [
-    {"Latest Mars News": "news_title", "news_p"},
-    {"Mars Facts": "table.html"},
-     {"Mar hemispheres": "hemisphere_image_urls"},
+scraped_data = [{"Latest Mars News": "news_title", "news_p"}, {"Mars Facts": "table.html"},{"Mar hemispheres": "hemisphere_image_urls"}]
         
-]
+
 
 # create route that renders index.html template
 @app.route("/")
