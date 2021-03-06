@@ -133,7 +133,7 @@ df.to_html('table.html')
 
 #Convert df to HTML table string
 
-get_ipython().system('open table.html')
+#get_ipython().system('open table.html')
 
 
 # # Mars Hemispheres
@@ -157,26 +157,13 @@ hemisphere_image_urls = [
 ]        
 
 
-app = Flask(__name__)
+
 
 # List of dictionaries
-scraped_data = [{"Latest Mars News": "news_title", "news_p"}, {"Mars Facts": "table.html"},{"Mar hemispheres": "hemisphere_image_urls"}]
+scraped_data = [{"Latest Mars News": "news_title"}, {"Mars Facts": "table.html"},{"Mar hemispheres": "hemisphere_image_urls"}]
         
 
 
-# create route that renders index.html template
-@app.route("/")
-def scrape():
-
-    return render_template("index.html", scraped_data=scraped_data)
-
-
-
-
-
-
-    if __name__ == "__main__":
-    app.run(debug=True)
 
 
 
