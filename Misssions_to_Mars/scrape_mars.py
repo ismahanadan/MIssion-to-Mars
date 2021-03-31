@@ -1,10 +1,13 @@
 from splinter import Browser
 from bs4 import BeautifulSoup
+import os
+from webdriver_manager.chrome import ChromeDriverManager
+os.chdir(os.path.dirname(os.path.abspath(__file__))) # sets current directory
 
 
 def init_browser():
     # @NOTE: Replace the path with your actual path to the chromedriver
-    executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
+    executable_path = {'executable_path': ChromeDriverManager().install()}
     return Browser("chrome", **executable_path, headless=False)
 
 
@@ -54,6 +57,6 @@ def scrape():
 
     scraped_data["title"] = soup.find("a", class_="news_title").get_text()
     scraped_data["paragraphs"] = soup.find("span", class_="news_p").get_text()
-    scraped_data["facts"] = soup.find("table", class_="tablepress").get_text()
+    #scraped_data["facts"] = soup.find("table", class_="tablepress").get_text()
 
     return scraped_data
