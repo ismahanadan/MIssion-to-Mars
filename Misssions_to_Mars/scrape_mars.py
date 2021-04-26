@@ -59,4 +59,12 @@ def scrape():
     scraped_data["paragraphs"] = soup.find("span", class_="news_p").get_text()
     #scraped_data["facts"] = soup.find("table", class_="tablepress").get_text()
 
+    Try:
+    scraped_data["title"] = soup.find(class="news_title").get_text()
+    scraped_data["paragraph"] = soup.find(class="news_p").get_text()
+    except AttributeError:
+    print "news_title: -"
+    print "news_p: -"
+
     return scraped_data
+
